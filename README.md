@@ -41,6 +41,34 @@ All endpoints are relative to the base URL: `http://localhost:3000/`
    - **Endpoint:** `/jokes/all`
    - **Authentication:** Requires an API key to perform this action.
 
+## Database Setup
+
+Before running the application, set up your PostgreSQL database with the following schema:
+
+```sql
+CREATE TABLE jokes (
+  id SERIAL PRIMARY KEY,
+  jokeText TEXT,
+  jokeType VARCHAR(255)
+);
+```
+## Importing Data
+
+You can import jokes data from the provided CSV file or use your own data. After setting up the table, you can import data using SQL `COPY` command or tools like pgAdmin or psql.
+
+## Environment Variables
+
+Configure the following environment variables in a `.env` file in the project root directory:
+
+```makefile
+DB_USER=your_database_username
+DB_HOST=your_database_host
+DB_DATABASE=your_database_name
+DB_PASSWORD=your_database_password
+DB_PORT=your_database_port
+MASTER_KEY=your_master_key
+```
+
 ## Technologies Used
 
 - **Express.js**: Web framework for Node.js used for building the API endpoints.
